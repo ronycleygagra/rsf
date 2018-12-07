@@ -1,2 +1,6 @@
-# rsf
-Projeto de medição de perda de potencia com equipamento 802.15.4
+## Projeto de medição de perda de potencia com equipamento 802.15.4
+
+### IFPB - TELEMÁTICA - CAMPUS CAMPINA GRANDE
+### DISCIPLINA: REDES SEM FIO
+### PROFESSOR: RUAN DELGADO
+### ALUNOS: PEDRO HENRIQUE TOMÉ DO NASCIMENTO e RONYCLEY GONÇALVES AGRA
