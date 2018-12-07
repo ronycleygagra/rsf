@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script>
+		google.charts.load('current', {'packages':['corechart']});
+		function carregagraficos(){
+			$("#canal11").load("./canal11.php");
+			//$("#canal12").load("./canal12.php");
+			/*
+			$("#canal13").load("./canal13.php");
+			$("#canal14").load("./canal14.php");
+			$("#canal15").load("./canal15.php");
+			$("#canal16").load("./canal16.php");
+			$("#canal17").load("./canal17.php");
+			$("#canal18").load("./canal18.php");
+			$("#canal19").load("./canal19.php");
+			$("#canal20").load("./canal20.php");
+			$("#canal21").load("./canal21.php");
+			$("#canal22").load("./canal22.php");
+			$("#canal23").load("./canal23.php");
+			$("#canal24").load("./canal24.php");
+			$("#canal25").load("./canal25.php");
+			$("#canal26").load("./canal26.php");
+			$("#canaltodos").load("./canaltodos.php");
+			*/
+		}
+	</script>
+	  
+    <title>Hello, world!</title>
+  </head>
+  <body onload="carregagraficos();">
+    <h1>Hello, world!</h1>
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#cana11" role="tab" aria-controls="canal11" aria-selected="true">Canal 11</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal11-tab" data-toggle="tab" href="#canal12" role="tab" aria-controls="canal12" aria-selected="false">Canal 12</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal12-tab" data-toggle="tab" href="#canal13" role="tab" aria-controls="canal13" aria-selected="false">Canal 13</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal13-tab" data-toggle="tab" href="#canal14" role="tab" aria-controls="canal14" aria-selected="false">Canal 14</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal14-tab" data-toggle="tab" href="#canal15" role="tab" aria-controls="canal15" aria-selected="false">Canal 15</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal15-tab" data-toggle="tab" href="#canal16" role="tab" aria-controls="canal16" aria-selected="false">Canal 16</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal16-tab" data-toggle="tab" href="#canal17" role="tab" aria-controls="canal17" aria-selected="false">Canal 17</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal17-tab" data-toggle="tab" href="#canal18" role="tab" aria-controls="canal18" aria-selected="false">Canal 18</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal18-tab" data-toggle="tab" href="#canal19" role="tab" aria-controls="canal19" aria-selected="false">Canal 19</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal19-tab" data-toggle="tab" href="#canal20" role="tab" aria-controls="canal20" aria-selected="false">Canal 20</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal20-tab" data-toggle="tab" href="#canal21" role="tab" aria-controls="canal21" aria-selected="false">Canal 21</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal21-tab" data-toggle="tab" href="#canal22" role="tab" aria-controls="canal22" aria-selected="false">Canal 22</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal22-tab" data-toggle="tab" href="#canal23" role="tab" aria-controls="canal23" aria-selected="false">Canal 23</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal23-tab" data-toggle="tab" href="#canal24" role="tab" aria-controls="canal24" aria-selected="false">Canal 24</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal24-tab" data-toggle="tab" href="#canal25" role="tab" aria-controls="canal25" aria-selected="false">Canal 25</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canal25-tab" data-toggle="tab" href="#canal26" role="tab" aria-controls="canal26" aria-selected="false">Canal 26</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="canaltodos-tab" data-toggle="tab" href="#canaltodos" role="tab" aria-controls="canaltodos" aria-selected="false">Sobreposição</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="canal11" role="tabpanel" aria-labelledby="canal11-tab"></div>
+  <div class="tab-pane fade" id="canal12" role="tabpanel" aria-labelledby="canal12-tab"></div>
+  <div class="tab-pane fade" id="canal13" role="tabpanel" aria-labelledby="canal13-tab"></div>
+  <div class="tab-pane fade" id="canal14" role="tabpanel" aria-labelledby="canal14-tab"></div>
+  <div class="tab-pane fade" id="canal15" role="tabpanel" aria-labelledby="canal15-tab"></div>
+  <div class="tab-pane fade" id="canal16" role="tabpanel" aria-labelledby="canal16-tab"></div>
+  <div class="tab-pane fade" id="canal17" role="tabpanel" aria-labelledby="canal17-tab"></div>
+  <div class="tab-pane fade" id="canal18" role="tabpanel" aria-labelledby="canal18-tab"></div>
+  <div class="tab-pane fade" id="canal19" role="tabpanel" aria-labelledby="canal19-tab"></div>
+  <div class="tab-pane fade" id="canal20" role="tabpanel" aria-labelledby="canal20-tab"></div>
+  <div class="tab-pane fade" id="canal21" role="tabpanel" aria-labelledby="canal21-tab"></div>
+  <div class="tab-pane fade" id="canal22" role="tabpanel" aria-labelledby="canal22-tab"></div>
+  <div class="tab-pane fade" id="canal23" role="tabpanel" aria-labelledby="canal23-tab"></div>
+  <div class="tab-pane fade" id="canal24" role="tabpanel" aria-labelledby="canal24-tab"></div>
+  <div class="tab-pane fade" id="canal25" role="tabpanel" aria-labelledby="canal25-tab"></div>
+  <div class="tab-pane fade" id="canal26" role="tabpanel" aria-labelledby="canal26-tab"></div>
+  <div class="tab-pane fade" id="canaltodos" role="tabpanel" aria-labelledby="canaltodos-tab"></div>
+</div>
+  </body>
+</html>

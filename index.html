@@ -1,0 +1,397 @@
+<html lang="pt-br">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {'packages': ['corechart']});
+
+        function carregagrafico11() {
+            $("#divgrafico").load("canal11.php");
+        }
+
+        function carregagrafico11n() {
+            $("#divgraficon").load("canal11n.php");
+        }
+
+        function carregagrafico(canal) {
+            $("#divgrafico").load("canal" + canal + ".php");
+        }
+
+        function carregagraficon(canal) {
+            $("#divgraficon").load("canal" + canal + "n.php");
+        }
+    </script>
+    <style>
+        html {
+            margin: auto;
+            width: 90%;
+            background-color: gainsboro;
+        }
+
+        .grafico {
+            width: 1200px;
+            height: 460px
+        }
+
+        body {
+            text-align: justify;
+            font-size: 18px;
+        }
+
+        h1, h2, h3, h4, h5, H5 { font-weight: bold}
+    </style>
+    <title>IFPB - TELEMTICA - REDES SEM FIO</title>
+</head>
+<body onload="javascript:carregagrafico11();carregagrafico11n();">
+<div class="row bg-success">
+    <div class="col-md-1"><img src="ifpb.png" alt="ifpb" class="img-thumbnail"></div>
+    <div class="col-md-4">
+        <font color="#fff">
+            <b>CAMPUS CAMPINA GRANDE</b><br>
+            <b>Disciplina:</b> Redes sem Fio<br>
+        </font>
+    </div>
+    <div class="col-md-6">
+        <font color="#fff">
+            <b>Professor:</b> Ruan Delgado Gomes<br>
+            <b>Alunos:</b> Pedro Henrique Tomé do Nascimento e Ronycley Gonçalves Agra
+        </font>
+    </div>
+</div>
+<BR>
+<CENTER>
+    <h2><span class="badge badge-secondary">RELATÓRIO - MEDIÇÃO DE PERDA DE POTÊNCIA PARA DISTÂNCIAS VARIADAS</span>
+    </h2>
+</center>
+<BR>
+<div class="alert alert-success" role="alert" id="sumario">
+    <h4 class="alert-heading">SUMARIO</h4>
+    <hr>
+    <a href="#p1" class="alert-link">1. INTRODUCAO</a><BR>
+    <a href="#p2" class="alert-link">2. EQUIPAMENTOS E SISTEMAS UTILIZADOS</a><BR>
+    <a href="#p3" class="alert-link">3. CARACTERIZAÇÃO DO AMBIENTE</a><BR>
+    <a href="#p4" class="alert-link">4. PROCEDIMENTOS UTILIZADOS</a><BR>
+    <a href="#p41" class="alert-link">4.1 - Montagem e configuracao dos equipamentos</a><BR>
+    <a href="#p42" class="alert-link">4.2 - Coleta de dados</a><BR>
+    <a href="#p43" class="alert-link">4.3 - Processamento dos dados coletados</a><BR>
+    <a href="#p44" class="alert-link">4.4 - Calculo da media de potencia por distancia e canal</a><BR>
+    <a href="#p45" class="alert-link">4.5 - Geraço dos graficos</a><BR>
+    <a href="#p5" class="alert-link">5. MEDIÇÕES POR CANAL E DISTÂNCIA</a><BR>
+    <a href="#p6" class="alert-link">6. CALCULO DO EXPOENTE DE PERDAS POR CANAL E DISTÂNCIA</a><BR>
+    <a href="#p7" class="alert-link">7. LINKS CONSULTADOS</a><BR>
+    <a href="#p8" class="alert-link">8. REPOSITORIO GIT</a><BR>
+</div>
+<br>
+<div class="row">
+    <div class="col-10"><H4 id="p1">1. INTRODUÇÃO</H4></div>
+    <div class="col-2"><a href="#sumario" class="badge badge-success float-right">Sumario</a></div>
+</div>
+<hr>
+<p align="justify">
+    Neste trabalho vamos analisar a perda de potência para distâncias diferentes em um enlace de dispositivos
+    que realizam comunicam sem fio utilizando protocolo 802.15.4.
+</p>
+<br>
+<div class="row">
+    <div class="col-10"><H4 id="p2">2. EQUIPAMENTOS E SISTEMAS UTILIZADOS</H4></div>
+    <div class="col-2"><a href="#sumario" class="badge badge-success float-right">Sumario</a></div>
+</div>
+<hr>
+Os equipamentos utilizados foram os seguintes:
+<ul>
+    <li>2 placas MiWi Comm Demo - 2.4 GHz MRF24J40, da fabricante Microship</li>
+    <li>1 modulo tranceiver RF MRF24J40MA - 2.4 GHz IEEE Std. 802.15.4</li>
+    <li>Computador desktop com sistema operacional Ubuntu 18.4 e ambiente python instalado</li>
+</ul>
+<br>
+<div class="row">
+    <div class="col-10"><H4 id="p3">3. CARACTERIZAÇÃO DO AMBIENTE</H4></div>
+    <div class="col-2"><a href="#sumario" class="badge badge-success float-right">Sumario</a></div>
+</div>
+<hr>
+O ambiente utilizado nas mediçoes foi a area interna do predio da Agencia Sebrae Campina Grande, Localizado na Av.
+Consul Joseph Noujaim Habib, 800, bairro do Catole.
+No local ha varios tipos de materiais e divisoes, como madeira, aluminio, vidro e plastico. Utilizamos o corredor
+central do predio para posicionar os modulos, conforme imagem abaixo:
+<br><br>
+<center><img src="fotosmedicao/1_visao_geral.jpg"></center>
+<center>Figura 1</center>
+<br><br>
+<div class="row">
+    <div class="col-10"><H4 id="p4">4. PROCEDIMENTOS UTILIZADOS</H4></div>
+    <div class="col-2"><a href="#sumario" class="badge badge-success float-right">Sumario</a></div>
+</div>
+<hr>
+Conforme orientaçao do professor Ruan, a sequencia de procedimentos abaixo foi executada:
+<br><br>
+<div class="row">
+    <div class="col-10"><H5 id="p41">4.1 - Montagem e configuracao dos equipamentos</H5></div>
+    <div class="col-2"><a href="#sumario" class="badge badge-success float-right">Sumario</a></div>
+</div>
+Montamos o modulo tranceiver e posicionamos os modulos transmissores inicialmente a 5 e 10 metros, conforme a figura 1.
+Em seguinda configuramos a conexao serial entre o tranceiver e o computador e identificamos o dispositivo gerado na
+pasta
+/dev , no caso, '/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AI03GNWF-if00-port0'.
+<br><br>
+<div class="row">
+    <div class="col-10"><H5 id="p42">4.2 - Coleta de dados</H5></div>
+    <div class="col-2"><a href="#sumario" class="badge badge-success float-right">Sumario</a></div>
+</div>
+Apos ligarmos os modulos, executamos o script <i>Serial.py</i>, no perido de 1 hora, para a coleta de dados de
+transmissao na distancias de 5 e 10 metros,
+15 e 20 metros, 25 e 30 metros e 35 e 40 metros:
+<br><br>
+<center><img src="imagens/1%20-%20serial.PNG"></center>
+<center>Figura 2</center>
+<br><br>
+A saida do script foi direcionada para os arquivos correspondentes as distancias:
+<br><br>
+<center><img src="imagens/print2.png"></center>
+<center>Figura 3</center>
+<br><br>
+Abaixo segue o print de parte do conteudo do arquivo correspondente a distancia de 5 e 10 metros:
+<br><br>
+<center><img src="imagens/print1.png"></center>
+<center>Figura 4</center>
+<br><br>
+<div class="row">
+    <div class="col-10"><H5 id="p3">4.3 - Processamento dos dados coletados</H5></div>
+    <div class="col-2"><a href="#sumario" class="badge badge-success float-right">Sumario</a></div>
+</div>
+Em seguida, processamos os dados coletados e os distribuimos em arquivos, especificando distancia e canal:
+<br><br>
+<center><img src="imagens/2%20-%20analiza%20Dados.PNG"></center>
+<center>Figura 5</center>
+<br><br>
+<center><img src="imagens/5%20-%20Script_captura_potencia_sinal_por_canal_distancia.PNG"></center>
+<center>Figura 6</center>
+<br><br>
+<div class="row">
+    <div class="col-10"><H5 id="p44">4.4 - Calculo da media de potencia por distancia e canal</H5></div>
+    <div class="col-2"><a href="#sumario" class="badge badge-success float-right">Sumario</a></div>
+</div>
+No passo seguinte, executamos o programa <i>Calculamedia.py</i> para o calcularmos a media da potencia recebida,
+referente a cada canal e nas distancias utilizadas.
+Para automatizar o processo, utilizamos o script <i>media_canal_distancia.sh</i>, que agrupa as medias por canal para
+cada distancia:
+<br><br>
+<center><img src="imagens/3%20-%20Calculamedia.PNG"></center>
+<center>Figura 7</center>
+<br><br>
+<center><img src="imagens/4%20-media_canal_distancia.PNG"></center>
+<center>Figura 8</center>
+<br><br>
+<center><img src="imagens/6%20-%20arquivo%20media%20canal.png"></center>
+<center>Figura 9</center>
+<br><br>
+<center><img src="imagens/7%20-%20media%20canal%2011.png"></center>
+<center>Figura 10 (media da potencia recebida para cada distancia pelo canal 11)</center>
+<div class="row">
+    <div class="col-10"><H5 id="p45">4.5 - Geraçao dos graficos do decaimento de potencia</H5></div>
+    <div class="col-2"><a href="#sumario" class="badge badge-success float-right">Sumario</a></div>
+</div>
+Em seguida utilizamos scripts PHP e a biblioteca Google Charts para gerar o grafico da media da potencia recibida por
+canal e distancia.
+Os codigos-fonte estao disponiveis em um repositorio GIT cujo link esta no final deste relatorio
+<br><br>
+<center><img src="imagens/8%20-%20grafico%2011.png"></center>
+<center>Figura 11</center>
+<br><br>
+<div class="row">
+    <div class="col-10"><H4 id="p5">5. MEDIÇÕES POR CANAL E DISTÂNCIA</H4></div>
+    <div class="col-2"><a href="#sumario" class="badge badge-success float-right">Sumario</a></div>
+</div>
+<hr>
+Segue abaixo a area de visualizacao do grafico de decaimento de potencia registrado para cada distancia e atraves de
+cada canal:
+<ul class="nav nav-tabs">
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('11');">Canal 11</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('12');">Canal 12</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('13');">Canal 13</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('14');">Canal 14</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('15');">Canal 15</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('16');">Canal 16</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('17');">Canal 17</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('18');">Canal 18</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('19');">Canal 19</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('20');">Canal 20</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('21');">Canal 21</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('22');">Canal 22</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('23');">Canal 23</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('24');">Canal 24</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('25');">Canal 25</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('26');">Canal 26</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagrafico('27');">Sobreposição de canais</a></li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="divgrafico" role="tabpanel" aria-labelledby="canal11-tab"></div>
+</div>
+<br>
+<div class="row">
+    <div class="col-10"><H4  id="p6">6. CALCULO DO EXPOENTE DE PERDAS POR CANAL E DISTÂNCIA</H4></div>
+    <div class="col-2"><a href="#sumario" class="badge badge-success float-right">Sumario</a></div>
+</div>
+<hr>
+Os modelos de propagação baseados em medidas e os modelos teóricos indicam que a
+potência do sinal recebido, em um percurso de larga e média escala, para uma separação
+arbitrária transmissor (Tx) - receptor (Rx), decresce logaritmicamente com a distância.
+A perda de percurso pode ser então expressa por:
+<br><br>
+<center>
+    <img src="imagens/eqlogsomb1.png">
+</center>
+<br><br>
+Ou ainda, em dB:
+<br><br>
+<center>
+    <img src="imagens/eqlogsomb2.png">
+</center>
+<br><br>
+Tomando por base as equacoes acima, definimos a distancia de referencia (d0) em 1 metro e calculamos
+a media da potencia recebida para essa distancia L(d0) para cada canal.
+Segue a tabela com os valores encontrados:
+<br><br>
+<center>
+    <div style="margin: 0 auto; width: 30%">
+        <table class="table table-striped" >
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col" width="40%"><center>Canal</center></th>
+                <th scope="col"><center>L(d0)</center></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><center>11</center></td>
+                <td><center>-53.0186144734</center></td>
+            </tr>
+            <tr>
+                <td><center>12</center></td>
+                <td><center>-53.5038524791</center></td>
+            </tr>
+            <tr>
+                <td><center>13</center></td>
+                <td><center>-54.8467038967</center></td>
+            </tr>
+            <tr>
+                <td><center>14</center></td>
+                <td><center>-55.2136308591</center></td>
+            </tr>
+            <tr>
+                <td><center>15</center></td>
+                <td><center>-54.0462873246</center></td>
+            </tr>
+            <tr>
+                <td><center>16</center></td>
+                <td><center>-54.5502614666</center></td>
+            </tr>
+            <tr>
+                <td><center>17</center></td>
+                <td><center>-55.3291517052</center></td>
+            </tr>
+            <tr>
+                <td><center>18</center></td>
+                <td><center>-56.5019675832</center></td>
+            </tr>
+            <tr>
+                <td><center>19</center></td>
+                <td><center>-56.9933150459</center></td>
+            </tr>
+            <tr>
+                <td><center>20</center></td>
+                <td><center>-58.1356772799</center></td>
+            </tr>
+            <tr>
+                <td><center>21</center></td>
+                <td><center>-58.7225856701</center></td>
+            </tr>
+            <tr>
+                <td><center>22</center></td>
+                <td><center>-59.0868392854</center></td>
+            </tr>
+            <tr>
+                <td><center>23</center></td>
+                <td><center>-61.4738612423</center></td>
+            </tr>
+            <tr>
+                <td><center>24</center></td>
+                <td><center>-66.1563502682</center></td>
+            </tr>
+            <tr>
+                <td><center>25</center></td>
+                <td><center>-65.5535987824</center></td>
+            </tr>
+            <tr>
+                <td><center>26</center></td>
+                <td><center>-60.670792223</center></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</center>
+calculamos o expoente de perda para cada distancia
+e canal e plotamos nos seguintes graficos:
+<br>
+<ul class="nav nav-tabs">
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('11');">Canal 11</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('12');">Canal 12</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('13');">Canal 13</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('14');">Canal 14</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('15');">Canal 15</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('16');">Canal 16</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('17');">Canal 17</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('18');">Canal 18</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('19');">Canal 19</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('20');">Canal 20</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('21');">Canal 21</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('22');">Canal 22</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('23');">Canal 23</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('24');">Canal 24</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('25');">Canal 25</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('26');">Canal 26</a></li>
+    <li class="nav-item"><a class="nav-link" href="javascript:carregagraficon('27');">Sobreposição de canais</a></li>
+</ul>
+<div class="tab-content" id="myTabContent2">
+    <div class="tab-pane fade show active" id="divgraficon" role="tabpanel" aria-labelledby="canal11ntab"></div>
+</div>
+<br>
+<div class="row">
+    <div class="col-10"><H4  id="p7">7. LINKS CONSULTADOS</H4></div>
+    <div class="col-2"><a href="#sumario" class="badge badge-success float-right">Sumario</a></div>
+</div>
+<hr>
+<a href="http://w3.ufsm.br/natanael/ComMoveisUFSM/telcelular10.pdf" class="badge badge-light" target="_blank">http://w3.ufsm.br/natanael/ComMoveisUFSM/telcelular10.pdf</a>
+<br>
+<a href="https://br.mouser.com/new/microchip/microchipdm1820151/" class="badge badge-light" target="_blank">https://br.mouser.com/new/microchip/microchipdm1820151/</a>
+<br>
+<a href="http://ww1.microchip.com/downloads/en/devicedoc/70329b.pdf" class="badge badge-light" target="_blank">http://ww1.microchip.com/downloads/en/devicedoc/70329b.pdf</a>
+<br>
+<br>
+<div class="row">
+    <div class="col-10"><H4  id="p8">8. REPOSITORIO GIT</H4></div>
+    <div class="col-2"><a href="#sumario" class="badge badge-success float-right">Sumario</a></div>
+</div>
+<hr>
+<a href="https://github.com/ronycleygagra/rsf" class="badge badge-light" target="_blank">https://github.com/ronycleygagra/rsf</a>
+<br>
+<br>
+<br>
+</body>
+</html>
